@@ -1,0 +1,453 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Form Styles */
+  .form-container {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 transform-gpu;
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .form-section {
+    @apply space-y-8;
+  }
+
+  .form-header {
+    @apply text-center space-y-2 pb-6 border-b border-gray-200;
+  }
+
+  .form-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .form-group {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply flex items-center space-x-2 text-sm font-semibold text-gray-700;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-white/50 backdrop-blur-sm;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 resize-none bg-white/50 backdrop-blur-sm;
+  }
+
+  .form-checkbox {
+    @apply w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 focus:ring-2;
+  }
+
+  /* Card Styles with 3D Effects */
+  .education-card,
+  .experience-card,
+  .project-card,
+  .skill-card {
+    @apply bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 transform-gpu transition-all duration-500;
+    transform-style: preserve-3d;
+    animation: cardFlipIn 0.8s ease-out;
+  }
+
+  .education-card:hover,
+  .experience-card:hover,
+  .project-card:hover,
+  .skill-card:hover {
+    @apply shadow-2xl scale-[1.02];
+    transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.02);
+  }
+
+  /* Button Styles */
+  .add-button {
+    @apply flex items-center justify-center space-x-2 w-full py-4 px-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+
+  /* Template Styles */
+  .template-categories {
+    @apply mb-8;
+  }
+
+  .template-category-btn {
+    @apply p-4 rounded-xl border-2 transition-all duration-300 transform hover:scale-105 cursor-pointer;
+  }
+
+  .template-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8;
+  }
+
+  .template-card {
+    @apply bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-2xl;
+    animation: templateSlideIn 0.6s ease-out;
+  }
+
+  .template-selected {
+    @apply ring-4 ring-blue-500 ring-opacity-50 shadow-2xl scale-105;
+  }
+
+  .template-preview {
+    @apply relative h-48 overflow-hidden;
+  }
+
+  .template-preview-content {
+    @apply w-full h-full p-4 border-2 border-dashed rounded-lg;
+  }
+
+  .template-selected-indicator {
+    @apply absolute top-2 right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg;
+    animation: checkmarkPop 0.3s ease-out;
+  }
+
+  .template-info {
+    @apply p-4 space-y-2;
+  }
+
+  .template-name {
+    @apply text-lg font-semibold text-gray-800;
+  }
+
+  .template-description {
+    @apply text-sm text-gray-600;
+  }
+
+  .template-colors {
+    @apply flex space-x-2 mt-3;
+  }
+
+  .color-dot {
+    @apply w-4 h-4 rounded-full border-2 border-white shadow-sm;
+  }
+
+  /* Mini Resume Preview */
+  .mini-resume {
+    @apply w-full h-full bg-white rounded-lg shadow-sm overflow-hidden;
+  }
+
+  .mini-header {
+    @apply h-8 w-full;
+  }
+
+  .mini-content {
+    @apply p-3 space-y-3;
+  }
+
+  .mini-section {
+    @apply space-y-2;
+  }
+
+  .mini-line {
+    @apply h-2 rounded;
+  }
+
+  .mini-line.long {
+    @apply w-full;
+  }
+
+  .mini-line.medium {
+    @apply w-3/4;
+  }
+
+  .mini-line.short {
+    @apply w-1/2;
+  }
+
+  /* Template Stats */
+  .template-stats {
+    @apply bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/20;
+  }
+
+  .stats-grid {
+    @apply grid grid-cols-3 gap-6;
+  }
+
+  .stat-item {
+    @apply text-center;
+  }
+
+  .stat-number {
+    @apply block text-2xl font-bold text-blue-600;
+  }
+
+  .stat-label {
+    @apply text-sm text-gray-600;
+  }
+
+  /* Preview Styles */
+  .preview-container {
+    @apply w-full max-w-4xl mx-auto;
+  }
+
+  .preview-sidebar {
+    @apply space-y-4;
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  .preview-full {
+    @apply col-span-full;
+  }
+
+  .preview-header {
+    @apply bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center;
+  }
+
+  /* Resume Preview Styles */
+  .resume-preview {
+    @apply bg-white rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto transform-gpu;
+    min-height: 800px;
+    animation: fadeInUp 0.8s ease-out;
+    background-color: var(--background-color, #ffffff);
+  }
+
+  .resume-header {
+    @apply pb-6 mb-8;
+    border-bottom: 2px solid var(--primary-color, #2563eb);
+  }
+
+  .resume-name h1 {
+    @apply text-4xl font-bold mb-4;
+    color: var(--text-color, #1f2937);
+  }
+
+  .resume-contact {
+    @apply flex flex-wrap gap-4 text-sm;
+    color: var(--text-color, #6b7280);
+  }
+
+  .contact-item {
+    @apply flex items-center space-x-2;
+  }
+
+  .resume-section {
+    @apply mb-8;
+  }
+
+  .resume-section-title {
+    @apply text-2xl font-bold mb-6 pb-2;
+    color: var(--primary-color, #2563eb);
+    border-bottom: 1px solid var(--accent-color, #3b82f6);
+  }
+
+  .resume-summary {
+    @apply leading-relaxed text-lg;
+    color: var(--text-color, #374151);
+  }
+
+  .resume-entry {
+    @apply mb-6 last:mb-0;
+  }
+
+  .resume-entry-header {
+    @apply flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3;
+  }
+
+  .resume-entry-title {
+    @apply text-xl font-semibold flex items-center space-x-2;
+    color: var(--text-color, #1f2937);
+  }
+
+  .resume-entry-company {
+    @apply text-lg font-medium;
+    color: var(--secondary-color, #1e40af);
+  }
+
+  .resume-entry-meta {
+    @apply flex flex-col sm:flex-row sm:space-x-4 text-sm mt-2 sm:mt-0;
+    color: var(--accent-color, #6b7280);
+  }
+
+  .resume-date,
+  .resume-location {
+    @apply flex items-center space-x-1;
+  }
+
+  .resume-gpa {
+    @apply text-sm font-medium;
+    color: var(--primary-color, #059669);
+  }
+
+  .resume-description {
+    @apply leading-relaxed space-y-2;
+    color: var(--text-color, #374151);
+  }
+
+  .resume-technologies {
+    @apply flex flex-wrap gap-2 mb-3;
+  }
+
+  .resume-tech-tag {
+    @apply px-3 py-1 rounded-full text-sm font-medium border;
+    background-color: var(--primary-color, #dbeafe);
+    color: var(--primary-color, #1e40af);
+    border-color: var(--primary-color, #3b82f6);
+  }
+
+  .resume-link {
+    @apply transition-colors duration-200;
+    color: var(--primary-color, #2563eb);
+  }
+
+  .resume-link:hover {
+    color: var(--secondary-color, #1e40af);
+  }
+
+  .resume-skills {
+    @apply space-y-6;
+  }
+
+  .resume-skill-category {
+    @apply space-y-3;
+  }
+
+  .resume-skill-category-title {
+    @apply text-lg font-semibold;
+    color: var(--secondary-color, #1f2937);
+  }
+
+  .resume-skill-list {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-3;
+  }
+
+  .resume-skill-item {
+    @apply flex items-center justify-between p-3 bg-gray-50 rounded-lg;
+  }
+
+  .resume-skill-name {
+    @apply font-medium;
+    color: var(--text-color, #1f2937);
+  }
+
+  .resume-skill-level {
+    @apply flex items-center space-x-1;
+  }
+}
+
+/* 3D Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-15deg) translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg) translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(15deg) translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg) translateX(0);
+  }
+}
+
+@keyframes cardFlipIn {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(5deg) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) translateY(0);
+  }
+}
+
+@keyframes templateSlideIn {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-10deg) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg) translateY(0);
+  }
+}
+
+@keyframes checkmarkPop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 3D Cube Navigation Effect */
+.form-container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume-preview {
+    @apply p-4 text-sm;
+  }
+  
+  .resume-name h1 {
+    @apply text-3xl;
+  }
+  
+  .resume-section-title {
+    @apply text-xl;
+  }
+  
+  .resume-entry-title {
+    @apply text-lg;
+  }
+  
+  .resume-contact {
+    @apply flex-col space-y-2;
+  }
+
+  .template-grid {
+    @apply grid-cols-1;
+  }
+
+  .stats-grid {
+    @apply grid-cols-1 gap-4;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .resume-preview {
+    @apply shadow-none p-4;
+  }
+  
+  body {
+    @apply bg-white;
+  }
+  
+  * {
+    @apply text-black bg-white;
+    box-shadow: none !important;
+  }
+}
